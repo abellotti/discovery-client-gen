@@ -68,7 +68,7 @@ def gen_client(client_dir, openapi_url):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        raise Exception("Usage: hbi_client_gen.py target_directory")
+        raise Exception("Usage: discovery_client_gen.py target_directory")
     client_dirs = sys.argv[1]
     gen_client(f"{client_dirs}/ingress", "https://console.redhat.com/api/ingress/v1/openapi.json")
     gen_client(f"{client_dirs}/rhsm", "https://console.redhat.com/api/rhsm/v2/openapi.json")
