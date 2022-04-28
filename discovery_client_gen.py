@@ -10,6 +10,7 @@
 
 from pathlib import Path
 import os
+import json
 import requests
 import sys
 
@@ -42,8 +43,8 @@ def gen_client(base_dir, client_name, openapi_url):
     if resp.status_code != 200:
         raise Exception("Failed to download " + openapi_url)
     openapi_file = f"{client_dir}/openapi.json"
-    with open(openapi_file, "wb") as of:
-        of.write(resp.content)
+    with open(openapi_file, "w") as of:
+        of.write(json.dumps(json.loads(resp.content), indent=4))
     print("Downloaded ", openapi_url)
 
     print("")
