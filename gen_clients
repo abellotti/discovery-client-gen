@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Create insights clients in the directory specified (must not exist)
+# or to the local directory discovery_insights_clients
+#
+export TARGET_DIR="discovery_insights_clients"
+if [ $# -eq 0 ]
+then
+  if [ ! -d "${TARGET_DIR}" ]
+  then
+    echo "Removing old target directory ${TARGET_DIR} ..."
+    rm -rf "${TARGET_DIR}"
+  fi
+elif [ $# -ne 1 ]
+then
+  echo "Usage: gen_clients <target_directory>"
+  exit 1
+else
+  export TARGET_DIR="${1}"
+  if [ -d "${TARGET_DIR}" ]
+  then
+    echo "Target directory ${TARGET_DIR} already exists."
+    exit 1
+  fi
+fi
+python discovery_client_gen.py "${TARGET_DIR}"

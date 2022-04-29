@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Default target directory for Insights clients
+discovery_insights_clients/
