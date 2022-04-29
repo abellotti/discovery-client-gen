@@ -130,3 +130,6 @@ dmypy.json
 
 # Default target directory for Insights clients
 discovery_insights_clients/
+
+# Default dev debugging directory
+debugging/
