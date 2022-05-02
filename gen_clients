@@ -6,7 +6,7 @@
 export TARGET_DIR="discovery_insights_clients"
 if [ $# -eq 0 ]
 then
-  if [ ! -d "${TARGET_DIR}" ]
+  if [ -d "${TARGET_DIR}" ]
   then
     echo "Removing old target directory ${TARGET_DIR} ..."
     rm -rf "${TARGET_DIR}"
