@@ -105,10 +105,15 @@ if __name__ == "__main__":
         ),
     )
     # HBI, Host Based Inventory
-    gen_client(
-        base_dir=client_dir,
-        client_name="inventory",
-        package_name="inventory_client",
-        openapi_schema_dir=openapi_schema_dir,
-        openapi_url="https://console.redhat.com/api/inventory/v1/openapi.json",
-    )
+    # Commenting out for now, even though the openapiseveral openapi validator
+    # passes fine on the openapi schema, the generator fails with a null pointer
+    # exception. Seems to be related to nested object and deepObject serialization
+    # with the Python client.
+    #
+    # gen_client(
+    #    base_dir=client_dir,
+    #    client_name="inventory",
+    #    package_name="inventory_client",
+    #    openapi_schema_dir=openapi_schema_dir,
+    #    openapi_url="https://console.redhat.com/api/inventory/v1/openapi.json",
+    # )
