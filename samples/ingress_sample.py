@@ -1,11 +1,12 @@
 import ingress_client
+import os
 from ingress_client.api import default_api
 from pprint import pprint
 
 configuration = ingress_client.Configuration(
     host="https://console.redhat.com/api/ingress/v1",
-    username="<<USERNAME>>",
-    password="<<PASSWORD>>",
+    username=os.environ.get("API_USERNAME", None),
+    password=os.environ.get("API_PASSWORD", None),
 )
 
 basic_auth = configuration.get_basic_auth_token()

@@ -1,3 +1,4 @@
+import os
 import rhsm_client
 from rhsm_client.api import manifest_api
 
@@ -8,8 +9,8 @@ from pprint import pprint
 
 configuration = rhsm_client.Configuration(
     host="https://console.redhat.com/api/rhsm/v2",
-    username="<<USERNAME>>",
-    password="<<PASSWORD>>",
+    username=os.environ.get("API_USERNAME", None),
+    password=os.environ.get("API_PASSWORD", None),
 )
 
 with rhsm_client.ApiClient(

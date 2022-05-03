@@ -1,11 +1,12 @@
+import os
 import rhsm_subscriptions_client
 from rhsm_subscriptions_client.api import default_api
 from pprint import pprint
 
 configuration = rhsm_subscriptions_client.Configuration(
     host="https://console.redhat.com/api/rhsm-subscriptions/v1",
-    username="<<USERNAME>>",
-    password="<<PASSWORD>>",
+    username=os.environ.get("API_USERNAME", None),
+    password=os.environ.get("API_PASSWORD", None),
 )
 
 basic_auth = configuration.get_basic_auth_token()
